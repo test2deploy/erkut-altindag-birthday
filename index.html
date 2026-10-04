@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111013">
+  <meta name="description" content="Erkut Altındağ için, dostluğa ve yeni hikâyelere adanmış küçük bir doğum günü sürprizi." />
+  <title>İyi ki Doğdun Erkut</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #f6f0e8;
+      --muted: #b9aaa0;
+      --gold: #e9bb78;
+      --copper: #c66c4d;
+      --wine: #582c35;
+      --night: #111013;
+      --panel: rgba(31, 26, 29, .78);
+      --line: rgba(233, 187, 120, .22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(ellipse at 50% -15%, rgba(141, 80, 67, .26), transparent 53%),
+        var(--night);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+    a { color: inherit; }
+    .grain { pointer-events:none; position:fixed; inset:0; z-index:9; opacity:.055; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.92' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); }
+    .wrap { width:min(1120px, calc(100% - 48px)); margin:auto; }
+    header { position:absolute; top:0; left:0; right:0; z-index:2; }
+    .nav { height:82px; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,.1); }
+    .wordmark { display:flex; gap:12px; align-items:center; text-decoration:none; color:#f4e7d6; font-size:.78rem; letter-spacing:.18em; text-transform:uppercase; }
+    .aperture { width:31px; height:31px; border:1px solid var(--gold); border-radius:50%; display:grid; place-items:center; color:var(--gold); font-size:15px; box-shadow:0 0 22px rgba(233,187,120,.22); }
+    .nav-links { display:flex; gap:29px; color:#d2c6be; font-size:.82rem; }
+    .nav-links a { text-decoration:none; transition:color .2s; }
+    .nav-links a:hover { color:var(--gold); }
+    .hero { min-height:780px; display:grid; align-items:center; position:relative; overflow:hidden; padding:120px 0 82px; isolation:isolate; }
+    .hero::before { content:""; position:absolute; width:min(68vw, 840px); aspect-ratio:1; border-radius:50%; background:radial-gradient(circle, rgba(180,96,67,.18), rgba(82,39,49,.1) 43%, transparent 70%); left:50%; top:51%; transform:translate(-50%,-50%); z-index:-1; }
+    .hero-grid { display:grid; grid-template-columns:1.03fr .97fr; align-items:center; gap:25px; }
+    .eyebrow { display:flex; align-items:center; gap:12px; color:var(--gold); text-transform:uppercase; letter-spacing:.23em; font-size:.69rem; font-weight:650; }
+    .eyebrow::before { content:""; width:34px; height:1px; background:var(--gold); }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { font-family:Georgia, "Times New Roman", serif; font-weight:400; font-size:clamp(4.5rem, 9vw, 8.1rem); line-height:.91; letter-spacing:-.065em; margin:22px 0 24px; }
+    h1 span { display:block; color:var(--gold); font-style:italic; font-size:.72em; letter-spacing:-.045em; margin-left:11%; }
+    .hero-copy { max-width:475px; color:#d7ccc5; font-size:1.07rem; line-height:1.85; }
+    .hero-copy strong { color:#fff5e9; font-weight:600; }
+    .actions { display:flex; gap:13px; align-items:center; margin-top:32px; }
+    .button { border:1px solid var(--gold); border-radius:999px; padding:12px 20px; font:inherit; font-size:.84rem; text-decoration:none; color:#1d1716; background:var(--gold); cursor:pointer; transition:transform .2s, background .2s; }
+    .button:hover { transform:translateY(-2px); background:#f5cf96; }
+    .button.secondary { color:var(--ink); background:transparent; border-color:rgba(255,255,255,.25); }
+    .button.secondary:hover { border-color:var(--gold); }
+    .art { width:100%; max-width:590px; justify-self:end; filter:drop-shadow(0 35px 50px rgba(0,0,0,.38)); animation:reveal 1.15s ease-out both; }
+    .art-frame { fill:none; stroke:rgba(231,185,121,.35); stroke-width:1; }
+    .scroll-note { position:absolute; bottom:27px; left:50%; transform:translateX(-50%); color:#998b84; font-size:.68rem; letter-spacing:.19em; text-transform:uppercase; }
+    .scroll-note::after { content:""; display:block; margin:8px auto 0; height:28px; width:1px; background:linear-gradient(var(--gold), transparent); }
+    section { padding:100px 0; }
+    .dedication { position:relative; border-top:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); background:linear-gradient(105deg, rgba(85,43,52,.22), rgba(17,16,19,.15) 55%, rgba(121,72,53,.15)); }
+    .dedication-inner { display:grid; grid-template-columns:.8fr 1.2fr; gap:70px; align-items:start; }
+    .section-label { color:var(--gold); letter-spacing:.2em; text-transform:uppercase; font-size:.67rem; }
+    .dedication h2, .stories h2, .future h2 { font:400 clamp(2.45rem, 4.4vw, 4.3rem)/1.07 Georgia, "Times New Roman", serif; letter-spacing:-.045em; margin:12px 0 0; }
+    .message { border-left:1px solid var(--gold); padding:2px 0 0 29px; color:#d8ccc4; font:1.08rem/1.95 Georgia, "Times New Roman", serif; }
+    .message p { margin-bottom:18px; }
+    .signature { display:block; color:var(--gold); margin-top:26px; font:italic 1.2rem Georgia, "Times New Roman", serif; }
+    .stories { padding-top:115px; padding-bottom:115px; }
+    .career { display:grid; grid-template-columns:.86fr 1.14fr; align-items:center; gap:72px; margin-bottom:105px; }
+    .portrait-wrap { position:relative; min-height:390px; }
+    .portrait { display:block; width:100%; height:360px; object-fit:cover; object-position:center 28%; filter:grayscale(100%); border:1px solid rgba(233,187,120,.4); box-shadow:0 25px 60px rgba(0,0,0,.35); }
+    .photo-credit { position:absolute; right:13px; top:13px; background:rgba(17,16,19,.77); padding:4px 9px; color:#e7d4bd; font-size:.62rem; letter-spacing:.06em; }
+    .photo-credit a { text-decoration:none; }
+    .film-pair { position:absolute; left:-26px; bottom:0; width:57%; height:142px; object-fit:cover; object-position:center 38%; border:7px solid #1e191b; box-shadow:0 15px 35px rgba(0,0,0,.5); transform:rotate(-3deg); }
+    .career-copy h2 { font:400 clamp(2.45rem, 4.4vw, 4.3rem)/1.07 Georgia, "Times New Roman", serif; letter-spacing:-.045em; margin:12px 0 18px; }
+    .career-copy p { color:#c6b9b1; max-width:550px; }
+    .roles { display:flex; flex-wrap:wrap; gap:8px; margin-top:25px; }
+    .roles span { padding:7px 12px; border:1px solid var(--line); border-radius:999px; color:#e1c498; font-size:.7rem; letter-spacing:.05em; }
+    .career-links { display:flex; flex-wrap:wrap; gap:18px; margin-top:23px; font-size:.74rem; }
+    .career-links a { color:#ddb981; text-decoration:none; border-bottom:1px solid rgba(221,185,129,.35); padding-bottom:3px; }
+    .career-links a:hover { color:#ffe0ac; border-color:currentColor; }
+    .image-credit { position:absolute; left:0; bottom:-24px; font-size:.62rem; color:#aa9b92; }
+    .image-credit a { color:#cbb28d; text-decoration:none; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:35px; margin-bottom:45px; }
+    .section-head p { max-width:340px; color:var(--muted); margin:0 0 4px; font-size:.91rem; }
+    .film-grid { display:grid; grid-template-columns:repeat(5, 1fr); gap:12px; }
+    .film-card { min-height:210px; display:flex; flex-direction:column; justify-content:space-between; border:1px solid rgba(255,255,255,.12); border-radius:4px; padding:20px 17px; background:linear-gradient(153deg, rgba(107,60,60,.4), rgba(34,27,31,.44) 63%, rgba(21,20,23,.92)); position:relative; overflow:hidden; transition:transform .25s,border-color .25s; }
+    .film-card::after { content:""; position:absolute; width:155px; height:155px; border:1px solid rgba(233,187,120,.18); border-radius:50%; right:-87px; top:-78px; box-shadow:0 0 0 14px rgba(233,187,120,.025),0 0 0 29px rgba(233,187,120,.018); }
+    .film-card:hover { transform:translateY(-5px); border-color:rgba(233,187,120,.55); }
+    .film-year { font-size:.7rem; color:var(--gold); letter-spacing:.12em; }
+    .film-card h3 { margin:0; position:relative; z-index:1; font:400 1.23rem/1.2 Georgia, "Times New Roman", serif; }
+    .film-card small { color:#aa9e97; font-size:.69rem; letter-spacing:.05em; }
+    .future { padding:0 0 112px; }
+    .future-panel { position:relative; overflow:hidden; display:grid; grid-template-columns:1fr auto; align-items:center; gap:30px; padding:46px 52px; border:1px solid var(--line); border-radius:5px; background:radial-gradient(ellipse at 91% 45%, rgba(191,104,70,.2), transparent 40%), linear-gradient(115deg, #251d21, #181619); }
+    .future-panel::before { content:""; position:absolute; inset:12px; border:1px solid rgba(233,187,120,.09); pointer-events:none; }
+    .future h2 { font-size:clamp(2.2rem, 4vw, 3.5rem); }
+    .future p { max-width:650px; color:#cfc1b9; margin:17px 0 0; }
+    .clock { width:114px; height:114px; border:1px solid rgba(233,187,120,.48); border-radius:50%; display:grid; place-items:center; color:var(--gold); font:italic 1.6rem Georgia,serif; position:relative; }
+    .clock::before,.clock::after { content:""; position:absolute; background:var(--gold); left:50%; top:50%; transform-origin:top; }
+    .clock::before { width:1px; height:27px; transform:rotate(2deg); }
+    .clock::after { width:24px; height:1px; transform:rotate(22deg); }
+    footer { border-top:1px solid rgba(255,255,255,.09); padding:26px 0 34px; color:#91867f; font-size:.73rem; }
+    .footer-row { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    footer a { color:#c2a77e; text-decoration:none; }
+    .toast { position:fixed; z-index:10; left:50%; bottom:30px; transform:translate(-50%,20px); opacity:0; padding:13px 20px; border:1px solid var(--line); border-radius:999px; background:#282125; box-shadow:0 12px 40px rgba(0,0,0,.4); color:#f2d8b3; transition:.35s; pointer-events:none; white-space:nowrap; }
+    .toast.show { opacity:1; transform:translate(-50%,0); }
+    .spark { position:fixed; z-index:10; pointer-events:none; width:7px; height:7px; background:var(--gold); border-radius:50%; animation:burst 950ms ease-out forwards; }
+    @keyframes reveal { from { opacity:0; transform:translateY(18px) scale(.985); } to { opacity:1; transform:none; } }
+    @keyframes burst { to { transform:translate(var(--dx),var(--dy)) scale(0); opacity:0; } }
+    @media (max-width:850px) {
+      .hero { min-height:700px; }
+      .hero-grid { grid-template-columns:1fr; text-align:center; gap:12px; }
+      .hero .eyebrow { justify-content:center; }
+      .hero .eyebrow::after { content:""; width:34px; height:1px; background:var(--gold); }
+      .hero-copy { margin-inline:auto; }
+      .actions { justify-content:center; }
+      .art { width:min(80%,460px); justify-self:center; margin-top:3px; }
+      h1 { font-size:clamp(4rem, 14vw, 7rem); }
+      .film-grid { grid-template-columns:repeat(3,1fr); }
+      .film-card { min-height:180px; }
+      .dedication-inner { gap:38px; }
+      .career { gap:36px; }
+    }
+    @media (max-width:600px) {
+      .wrap { width:min(100% - 34px, 480px); }
+      .nav { height:68px; }
+      .nav-links { display:none; }
+      .hero { min-height:740px; padding-top:100px; padding-bottom:65px; }
+      .hero-grid { gap:0; }
+      .hero-copy { font-size:.97rem; }
+      .art { width:100%; max-width:390px; }
+      .scroll-note { bottom:15px; }
+      section { padding:74px 0; }
+      .dedication-inner { grid-template-columns:1fr; gap:26px; }
+      .dedication h2 { max-width:420px; }
+      .message { margin-left:4px; font-size:1rem; }
+      .section-head { display:block; margin-bottom:30px; }
+      .section-head p { margin-top:17px; }
+      .film-grid { grid-template-columns:repeat(2,1fr); gap:9px; }
+      .career { grid-template-columns:1fr; gap:29px; margin-bottom:70px; }
+      .portrait-wrap { min-height:340px; width:min(100%,360px); margin:auto; }
+      .portrait { height:318px; }
+      .film-pair { left:-8px; width:54%; height:113px; }
+      .career-copy h2 { max-width:430px; }
+      .film-card { min-height:158px; padding:17px 14px; }
+      .film-card h3 { font-size:1.05rem; }
+      .future { padding-bottom:78px; }
+      .future-panel { grid-template-columns:1fr; padding:31px 25px; }
+      .clock { position:absolute; right:28px; top:28px; width:75px; height:75px; opacity:.45; }
+      .clock::before { height:19px; }
+      .clock::after { width:18px; }
+      .future h2 { max-width:230px; }
+      .footer-row { align-items:flex-start; flex-direction:column; gap:7px; }
+    }
+    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <header>
+    <div class="wrap nav">
+      <a class="wordmark" href="#top" aria-label="Başlangıca dön"><span class="aperture">✳</span> Bir dost için</a>
+      <nav class="nav-links" aria-label="Sayfa bölümleri">
+        <a href="#mesaj">Bir not</a><a href="#kariyer">Akademi ve sinema</a><a href="#hikayeler">Filmleri</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">5 Ekim · Erkut'a özel</div>
+          <h1 id="hero-title">İyi ki<br><span>doğdun, Erkut.</span></h1>
+          <p class="hero-copy">Dünyaya yeni hikâyeler, hayatıma da <strong>çok kıymetli bir dost</strong> kattığın için… Bu küçük sayfa, senin için ayrılmış güzel bir sahne olsun.</p>
+          <div class="actions">
+            <a class="button" href="#mesaj">Sana bir notum var</a>
+            <a class="button secondary" href="#hikayeler">Hikâyelerine bak</a>
+          </div>
+        </div>
+        <svg class="art" viewBox="0 0 620 540" role="img" aria-labelledby="art-title art-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="art-title">İki dost, gün batımında yeni bir hikâyeye doğru</title>
+          <desc id="art-desc">Altın rengi bir gökyüzünün önünde yan yana yürüyen iki siluet, çevrelerinde film şeridi biçimli bir yay.</desc>
+          <defs>
+            <radialGradient id="sun" cx="50%" cy="43%" r="56%"><stop stop-color="#ffd99c"/><stop offset=".36" stop-color="#d88b60"/><stop offset="1" stop-color="#703945" stop-opacity=".08"/></radialGradient>
+            <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#6f3b45" stop-opacity=".05"/><stop offset=".75" stop-color="#cb7958" stop-opacity=".28"/><stop offset="1" stop-color="#f0b46e" stop-opacity=".08"/></linearGradient>
+            <linearGradient id="hill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#422832"/><stop offset="1" stop-color="#171519"/></linearGradient>
+            <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
+          </defs>
+          <ellipse cx="315" cy="250" rx="186" ry="184" fill="#d68d5b" opacity=".18" filter="url(#blur)"/>
+          <circle cx="315" cy="232" r="152" fill="url(#sun)"/>
+          <path d="M20 343 C125 296 195 323 265 332 C368 346 436 292 600 323 L620 540H0Z" fill="url(#hill)"/>
+          <path d="M0 413 C117 363 183 397 283 383 C400 366 496 396 620 354 V540H0Z" fill="#161519" opacity=".8"/>
+          <!-- film-strip ribbon -->
+          <path d="M-18 146 C126 21 266 30 344 89 C452 171 466 296 613 352" fill="none" stroke="#edc282" stroke-opacity=".48" stroke-width="37"/>
+          <path d="M-18 146 C126 21 266 30 344 89 C452 171 466 296 613 352" fill="none" stroke="#33242a" stroke-width="28"/>
+          <g fill="#e9bb78" opacity=".88">
+            <rect x="25" y="103" width="10" height="13" rx="2" transform="rotate(-34 25 103)"/><rect x="61" y="77" width="10" height="13" rx="2" transform="rotate(-30 61 77)"/>
+            <rect x="101" y="55" width="10" height="13" rx="2" transform="rotate(-25 101 55)"/><rect x="144" y="44" width="10" height="13" rx="2" transform="rotate(-17 144 44)"/>
+            <rect x="188" y="43" width="10" height="13" rx="2" transform="rotate(-8 188 43)"/><rect x="231" y="54" width="10" height="13" rx="2" transform="rotate(8 231 54)"/>
+            <rect x="272" y="76" width="10" height="13" rx="2" transform="rotate(25 272 76)"/><rect x="310" y="108" width="10" height="13" rx="2" transform="rotate(35 310 108)"/>
+            <rect x="346" y="148" width="10" height="13" rx="2" transform="rotate(40 346 148)"/><rect x="377" y="193" width="10" height="13" rx="2" transform="rotate(30 377 193)"/>
+            <rect x="406" y="238" width="10" height="13" rx="2" transform="rotate(25 406 238)"/><rect x="444" y="279" width="10" height="13" rx="2" transform="rotate(35 444 279)"/>
+            <rect x="486" y="313" width="10" height="13" rx="2" transform="rotate(31 486 313)"/><rect x="531" y="337" width="10" height="13" rx="2" transform="rotate(24 531 337)"/>
+          </g>
+          <!-- two friends walking together -->
+          <g fill="#1a171a">
+            <path d="M260 311c-6-11-4-25 0-36 4-11 13-17 24-16 12 1 19 10 18 23l-4 32 18 41-10 7-26-35-7 46-12 40h-12l5-43-2-35-19 35-13-5 20-51c5-12 10-26 20-35Z"/>
+            <path d="M317 322c-5-11-3-22 2-31 5-9 13-13 22-11 10 2 15 11 13 22l-5 25 21 32-10 8-24-27-5 37-8 42h-12l4-43-8-30-13 30-12-5 16-42c5-12 11-23 19-30Z"/>
+            <path d="M294 291c13 6 19 14 28 23l10-4 4 7-16 10-26-19Z"/>
+          </g>
+          <g fill="#fff0cf" opacity=".85"><circle cx="465" cy="114" r="2"/><circle cx="516" cy="182" r="1.4"/><circle cx="146" cy="211" r="1.8"/><circle cx="96" cy="285" r="1.2"/><circle cx="401" cy="74" r="1.4"/></g>
+          <rect class="art-frame" x="9" y="9" width="602" height="522" rx="3"/>
+          <path d="M26 52h36M26 52V28M594 488h-36M594 488v24" stroke="#e9bb78" stroke-opacity=".6" fill="none"/>
+        </svg>
+      </div>
+      <div class="scroll-note">Birlikte nice güzel sahnelere</div>
+    </section>
+    <section class="dedication" id="mesaj">
+      <div class="wrap dedication-inner">
+        <div>
+          <div class="section-label">Sana küçük bir not</div>
+          <h2>En güzel hikâyeler, iyi dostlarla yaşanıyor.</h2>
+        </div>
+        <div class="message">
+          <p>Erkut, doğum günün kutlu olsun dostum. Ürettiğin her yeni hikâyede hayal gücünün, cesaretinin ve o kendine özgü bakışının izini görmek çok güzel.</p>
+          <p>Seninle paylaştığım sohbetler, kahkahalar ve küçük anlar benim için çok kıymetli. Umarım yeni yaşın; sağlık, huzur, kahkaha ve birlikte biriktireceğimiz daha nice güzel an getirir.</p>
+          <p>İyi ki varsın. İyi ki dostumsun.</p>
+          <span class="signature">— Avni</span>
+        </div>
+      </div>
+    </section>
+    <section class="stories" id="hikayeler">
+      <div class="wrap career" id="kariyer">
+        <div class="portrait-wrap">
+          <img class="portrait" src="https://m.media-amazon.com/images/M/MV5BN2E1YWZlZjItYjk5Mi00ZGI4LWJhZDktN2ZmNWFlYzk1N2U1XkEyXkFqcGc%40._V1_.jpg" alt="Yönetmen ve akademisyen Erkut Altındağ'ın portresi" referrerpolicy="no-referrer" loading="lazy">
+          <span class="photo-credit">Fotoğraf: <a href="https://www.imdb.com/name/nm5089991/" target="_blank" rel="noopener noreferrer">IMDb</a></span>
+          <img class="film-pair" src="https://d.olay53.com/other/2022/10/11/prof-dr-erkut-altindag-ile-volkan-ozgumusun-yonetmenligini.jpg" alt="Erkut Altındağ ve yönetmen Volkan Özgümüş" referrerpolicy="no-referrer" loading="lazy">
+          <span class="image-credit">Erkut Altındağ &amp; Volkan Özgümüş · <a href="https://www.olay53.com/haber/profesorden-uzun-metraj-korku-filmi-1100672.htm" target="_blank" rel="noopener noreferrer">Olay53 / İHA</a></span>
+        </div>
+        <div class="career-copy">
+          <div class="section-label">Akademiden sinemaya</div>
+          <h2>Merakın iki ayrı sahnesi.</h2>
+          <p>Akademik kariyerinde profesörlüğe, bugün Doğuş Üniversitesi rektör yardımcılığına uzanan Erkut; sinemada da yönetmen, yapımcı ve senarist olarak yeni dünyalar kuruyor. Bu iki yol, onda aynı merakta buluşuyor: iyi bir fikrin peşinden gitmek.</p>
+          <div class="roles"><span>Profesör</span><span>Rektör Yardımcısı</span><span>Yönetmen</span><span>Yapımcı</span><span>Senarist</span></div>
+          <div class="career-links"><a href="https://www.dogus.edu.tr/akademik/kurullar-komisyonlar" target="_blank" rel="noopener noreferrer">Üniversitedeki akademik görevi ↗</a><a href="https://test2deploy.github.io/aver-production/" target="_blank" rel="noopener noreferrer">Aver Production ↗</a></div>
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="section-label">Kamera açılıyor</div><h2>Hikâyelerinden<br>birkaç kare</h2></div>
+          <p>Erkut’un sinema yolculuğundaki farklı dünyalardan küçük bir seçki.</p>
+        </div>
+        <div class="film-grid">
+          <article class="film-card"><span class="film-year">2024</span><h3>Biaz: Kara İyenin Laneti</h3><small>Korku · Gerilim</small></article>
+          <article class="film-card"><span class="film-year">2021</span><h3>The Candidate</h3><small>Dram · Gerilim</small></article>
+          <article class="film-card"><span class="film-year">2019</span><h3>The Curtain</h3><small>Kısa film</small></article>
+          <article class="film-card"><span class="film-year">2018</span><h3>Flat Earth</h3><small>Bilim kurgu</small></article>
+          <article class="film-card"><span class="film-year">2013</span><h3>Gizem Birimi</h3><small>Komedi · Bilim kurgu</small></article>
+        </div>
+      </div>
+    </section>
+    <section class="future" id="gelecek">
+      <div class="wrap">
+        <div class="future-panel">
+          <div>
+            <div class="section-label">Perde kapanmıyor</div>
+            <h2>Yeni filmler yolda.</h2>
+            <p>Erkut'un merakı ve hayal gücüyle şekillenen yeni hikâyeleri heyecanla bekliyoruz. Daha anlatılacak çok şey, kurulacak daha nice sinema dünyası var.</p>
+          </div>
+          <div class="clock" aria-hidden="true">✦</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="wrap footer-row">
+      <span>5 Ekim · Erkut için sevgiyle hazırlandı.</span>
+      <a href="https://test2deploy.github.io/aver-production/" target="_blank" rel="noopener noreferrer">Aver Production'da filmlerini keşfet ↗</a>
+    </div>
+  </footer>
+  <div class="toast" role="status" aria-live="polite">Yeni yaşın güzel anılarla dolsun, Erkut! ✨</div>
+  <script>
+    const toast = document.querySelector('.toast');
+    let toastTimer;
+    document.querySelectorAll('a[href="#mesaj"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        toast.classList.add('show');
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+        for (let i = 0; i < 16; i++) {
+          const dot = document.createElement('i');
+          dot.className = 'spark';
+          dot.style.left = `${window.innerWidth / 2 + (Math.random() - .5) * 80}px`;
+          dot.style.top = `${window.innerHeight / 2 + (Math.random() - .5) * 50}px`;
+          dot.style.setProperty('--dx', `${(Math.random() - .5) * 210}px`);
+          dot.style.setProperty('--dy', `${(Math.random() - .6) * 190}px`);
+          document.body.appendChild(dot);
+          setTimeout(() => dot.remove(), 1000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
